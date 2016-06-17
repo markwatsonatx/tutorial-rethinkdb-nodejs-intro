@@ -1,6 +1,6 @@
 {
-  "name": "tutorial-rethinkdb-nodejs-crud",
-  "version": "1.0.0",
+  "name": "tutorial-rethinkdb-nodejs-intro",
+  "version": "0.0.1",
   "description": "",
   "author": "Mark Watson <markwatsonatx@gmail.com>",
   "main": "server.js",
