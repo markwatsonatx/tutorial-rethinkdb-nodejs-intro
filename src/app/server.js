@@ -18,6 +18,15 @@ r.connect(config.rethinkdb, function(err, conn) {
     }
 });
 
+// set view engine and map views directory
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+// map requests
+app.get('/', function(req, res) {
+    res.render('index', {rdbConnected: (rdbConn != null)});
+});
+
 // start server
 app.listen(config.express.port, '0.0.0.0', function() {
   console.log('Server started on port ' + config.express.port + '.')
