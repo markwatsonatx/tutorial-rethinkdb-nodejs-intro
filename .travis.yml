@@ -1,5 +1,7 @@
 language: node_js
 node_js:
   - "node"
+install:
+  cd src/app && npm install
 script:
-  cd src/app && npm run test
+  cd src/app && npm test
