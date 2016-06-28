@@ -5,12 +5,17 @@
   "author": "Mark Watson <markwatsonatx@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "npm install && nodemon -L server.js"
+    "start": "npm install --production && nodemon -L server.js",
+	"test": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
     "ejs": "^2.4.2",
     "express": "^4.13.3",
     "nodemon": "^1.9.2",
     "rethinkdb": "^2.3.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }
