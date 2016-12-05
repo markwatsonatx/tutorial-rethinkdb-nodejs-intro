@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: web
+    spec:
+      containers:
+      - image: markwatsonatx/rethinkdb-nodejs-intro-web:latest
+        imagePullPolicy: IfNotPresent
+        name: web
+        ports:
+        - containerPort: 3000

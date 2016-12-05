@@ -1,0 +1,31 @@
+apiVersion: apps/v1alpha1
+kind: PetSet
+metadata:
+  name: db
+spec:
+  serviceName: db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: db
+    spec:
+      containers:
+      - image: markwatsonatx/rethinkdb-nodejs-intro-db:latest
+        imagePullPolicy: IfNotPresent
+        name: db
+        ports:
+        - containerPort: 28015
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      annotations:
+        volume.alpha.kubernetes.io/storage-class: anything
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
